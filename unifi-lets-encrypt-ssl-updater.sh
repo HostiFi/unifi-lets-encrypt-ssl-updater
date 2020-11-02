@@ -13,6 +13,6 @@ for DOMAIN in "${DOMAINS[@]}"; do
 done
 echo $DOMAINSTR;
 
-certbot --nginx --email $EMAIL --agree-tos --no-eff-email --expand $DOMAINSTR --no-redirect
+certbot --nginx --email $EMAIL --agree-tos --no-eff-email --expand $DOMAINSTR --no-redirect --quiet --force-renewal
 wget -O /root/unifi-lets-encrypt-ssl-importer.sh https://raw.githubusercontent.com/HostiFi/unifi-lets-encrypt-ssl-importer/master/unifi-lets-encrypt-ssl-importer.sh
 /bin/bash /root/unifi-lets-encrypt-ssl-importer.sh -d ${DOMAINS[0]}
